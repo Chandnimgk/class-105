@@ -25,10 +25,10 @@ function modelLoaded()
 function check()
 {
    img=document.getElementById("captured_image");
-   classifier.classify(img,got_reulst);
+   classifier.classify(img,got_result);
 }
 
-function got_reulst(error,result)
+function got_result(error,results)
 {
   if(error)
   {
@@ -36,8 +36,8 @@ function got_reulst(error,result)
   }
   else
   {
-      console.log(result);
-      document.getElementById("result_object_name").innerHTM=result[0].label;
-      document.getElementById("result_object_accuracy").innerHTM=result[0].confidence.tofixed(3);
+      console.log(results);
+      document.getElementById("result_object_name").innerHTML=results[0].label;
+      document.getElementById("result_object_accuracy").innerHTML=results[0].confidence.toFixed(3);
   }
 }
